@@ -23,9 +23,7 @@ class Student
   end
   
   def self.drop_table
-    sql = <<-SQL 
-      DROP TABLE IF EXISTS songs
-    SQL
+    sql = DROP TABLE IF EXISTS songs
     
     DB[:conn].execute(sql)
   end
