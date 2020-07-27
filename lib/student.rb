@@ -52,7 +52,15 @@ class Student
     new_student.save
     new_student
     
-    DB[:conn].execute()
+    DB[:conn].execute(self.name, self.grade, self.id)
+  end
+  
+  def self.find_by_name
+    
+  end
+  
+  def update
+    
   end
 
 end
