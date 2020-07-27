@@ -53,11 +53,18 @@ class Student
     name = row [1]
     grade = row[2]
     
-    self.new = 
+    self.new(name, grade, id)
   end
   
   def self.find_by_name
+    sql = <<-SQL
+      SELECT *
+      FROM students
+      WHERE name = ?
+      LIMIT 1
+    SQL
     
+    DB[:conn].execute
   end
   
   def update
