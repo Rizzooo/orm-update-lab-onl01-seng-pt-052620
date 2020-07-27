@@ -29,7 +29,10 @@ class Student
   end
   
   def save 
-    if sql = <<-SQL 
+    if self.id
+      self.update
+    else
+      sql = <<-SQL 
       INSERT INTO songs (name, grade)
       VALUES (?, ?)
     SQL
@@ -46,7 +49,10 @@ class Student
   
   def self.new_from_db
     new_student = Student.new(name, grade, id)
+    new_student.save
+    new_student
     
+    DB[:conn].execute()
   end
 
 end
