@@ -64,7 +64,7 @@ class Student
       LIMIT 1
     SQL
     
-    DB[:conn].execute
+    DB[:conn].execute(sql, self.name)
   end
   
   def update
